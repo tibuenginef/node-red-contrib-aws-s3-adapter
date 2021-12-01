@@ -23,10 +23,11 @@ const uploadToS3 = ({
     const s3 = new AWS.S3();
 
     // Ensure that you POST a base64 data to your server.
-    const base64Data = Buffer.from(
-      base64.replace(/^data:image\/\w+;base64,/, ""),
-      "base64"
-    );
+    // const base64Data = Buffer.from(
+    //   base64.replace(/^data:image\/\w+;base64,/, ""),
+    //   "base64"
+    // );
+    const base64Data = Buffer.from(base64);
 
     const params = {
       Bucket: S3_BUCKET,
