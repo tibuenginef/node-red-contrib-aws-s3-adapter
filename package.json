@@ -1,0 +1,32 @@
+{
+  "name": "node-red-contrib-aws-s3-adapter",
+  "version": "1.0.0",
+  "description": "AWS S3 adapter to create and authenticate users",
+  "main": "index.js",
+  "node-red": {
+    "nodes": {
+      "s3-upload": "s3-upload.js"
+    }
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tibu Padmakumar",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tibuenginef/node-red-contrib-aws-s3-adapter.git"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1040.0",
+    "bluebird": "^3.7.2"
+  },
+  "bugs": {
+    "url": "https://github.com/tibuenginef/node-red-contrib-aws-s3-adapter/issues"
+  },
+  "homepage": "https://github.com/tibuenginef/node-red-contrib-aws-s3-adapter#readme",
+  "devDependencies": {}
+}

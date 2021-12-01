@@ -1,0 +1,141 @@
+<script type="text/javascript">
+    RED.nodes.registerType('s3-upload', {
+        category: 'egaliti',
+        color: '#FF9900',
+        defaults: {
+            name: {
+                value: ""
+            },
+            target: {
+                value: "payload"
+            },
+            accessKeyId: {
+                value: ""
+            },
+            accessKeyIdType: {
+                value: "str"
+            },
+            secretAccessKey: {
+                value: ""
+            },
+            secretAccessKeyType: {
+                value: "str"
+            },
+            awsRegion: {
+                value: ""
+            },
+            awsRegionType: {
+                value: "str"
+            },
+            s3Bucket: {
+                value: ""
+            },
+            s3BucketType: {
+                value: "str"
+            },
+        },
+        data: {
+            userId: {
+                type: "text"
+            },
+            base64: {
+                type: "text"
+            },
+            folderName: {
+                type: "text"
+            },
+            fileType: {
+                type: "text"
+            }
+        },
+        inputs: 1,
+        outputs: 2,
+        icon: "logo-egaliti.png",
+        label: function () {
+            return this.name || "s3-upload";
+        },
+
+        oneditprepare: function () {
+            $("#node-input-accessKeyId").typedInput({
+                type: "str",
+                types: ["str", "msg", "flow", "global"],
+                typeField: "#node-input-accessKeyIdType"
+            });
+            $("#node-input-secretAccessKey").typedInput({
+                type: "str",
+                types: ["str", "msg", "flow", "global"],
+                typeField: "#node-input-secretAccessKeyType"
+            });
+            $("#node-input-awsRegion").typedInput({
+                type: "str",
+                types: ["str", "msg", "flow", "global"],
+                typeField: "#node-input-awsRegionType"
+            });
+            $("#node-input-s3Bucket").typedInput({
+                type: "str",
+                types: ["str", "msg", "flow", "global"],
+                typeField: "#node-input-s3BucketType"
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="s3-upload">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-target"><i class="fa fa-tag"></i>Target attribute</label>
+        <input type="text" id="node-input-target" placeholder="msg Attribute">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-userId"><i class="fa fa-tag"></i> File Name</label>
+        <input type="text" id="node-input-userId" placeholder="Here we can use user id as filename">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-base64"><i class="fa fa-tag"></i> Base64</label>
+        <input type="text" id="node-input-base64" placeholder="Base64">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-folderName"><i class="fa fa-tag"></i> Folder Name</label>
+        <input type="text" id="node-input-folderName" placeholder="Folder Name">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-fileType"><i class="fa fa-tag"></i> File Type</label>
+        <input type="text" id="node-input-fileType" placeholder="File Type (jpeg, png or gif)">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-accessKeyId"><i class="fa fa-tag"></i>ACCESS KEY ID</label>
+        <input type="text" id="node-input-accessKeyId" placeholder="AWS Access Key Id">
+        <input type="hidden" id="node-input-accessKeyIdType">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-secretAccessKey"><i class="fa fa-tag"></i>SECRET ACCESS KEY</label>
+        <input type="text" id="node-input-secretAccessKey" placeholder="Secret Access Key">
+        <input type="hidden" id="node-input-secretAccessKeyType">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-awsRegion"><i class="fa fa-tag"></i>REGION</label>
+        <input type="text" id="node-input-awsRegion" placeholder="AWS S3 Region">
+        <input type="hidden" id="node-input-awsRegionType">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-s3Bucket"><i class="fa fa-tag"></i>BUCKET NAME</label>
+        <input type="text" id="node-input-s3Bucket" placeholder="AWS S3 Bucket Name">
+        <input type="hidden" id="node-input-s3BucketType">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="s3-upload">
+    <p> A simple node to upload files to AWS S3 and returns the url as response.<br /></p>
+</script>
