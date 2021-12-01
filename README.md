@@ -1,0 +1,1 @@
+# node-red-contrib-aws-s3-adapter
